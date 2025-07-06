@@ -6,6 +6,6 @@
 </script>
 
 <div class="h-[95%]">
-	ehllo
+	Find Leg
 	<Map />
 </div>
