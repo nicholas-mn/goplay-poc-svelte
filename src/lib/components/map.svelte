@@ -48,12 +48,18 @@
 				},
 				(error) => {
 					console.error('Geolocation error:', error);
-					alert('Unable to retrieve your location.');
 				}
 			);
-		} else {
-			alert('Geolocation is not supported by your browser.');
 		}
+
+		map.addControl(
+			new maplibregl.GeolocateControl({
+				positionOptions: {
+					enableHighAccuracy: true
+				},
+				trackUserLocation: true
+			})
+		);
 	});
 </script>
 
