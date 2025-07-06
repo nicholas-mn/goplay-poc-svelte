@@ -1,7 +1,11 @@
 <script lang="ts">
+	import Map from '$lib/components/map.svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
 </script>
 
-FIND LEG
+<div class="h-[95%]">
+	ehllo
+	<Map />
+</div>
