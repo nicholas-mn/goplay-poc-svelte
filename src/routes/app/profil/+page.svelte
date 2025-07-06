@@ -4,4 +4,6 @@
 	let { data }: { data: PageData } = $props();
 </script>
 
-OPRET
+PROFIL
+
+<a href="/app/logout">logout</a>
