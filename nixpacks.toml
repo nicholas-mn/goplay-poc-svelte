@@ -1,0 +1,14 @@
+[phases.setup]
+nixPkgs = ["nodejs","pnpm"]
+
+[phases.install]
+cmds = ["pnpm install"]
+
+[phases.build]
+cmds = ["pnpm build"]
+
+[start]
+cmd = 'node build'
+
+[variables]
+NIXPACKS_NODE_VERSION = '23'
