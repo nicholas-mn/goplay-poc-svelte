@@ -5,3 +5,5 @@
 </script>
 
 App page
+
+<a href="/app/logout">logout</a>
