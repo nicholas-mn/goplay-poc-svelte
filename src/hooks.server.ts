@@ -25,12 +25,12 @@ export async function handle({ event, resolve }) {
 
 	const path = event.url.pathname;
 
-	if ((path.startsWith("/app") && !path.startsWith("/app/login")) && !isLoggedIn) {
-		redirect(303, '/app/login');
+	if ((path.startsWith("/app")) && !isLoggedIn) {
+		redirect(303, '/login');
 	}
 
 	// redirect to app if already logged in
-	if (path === "/app/login" && isLoggedIn) {
+	if (path === "/login" && isLoggedIn) {
 		redirect(303, '/app');
 	}
 

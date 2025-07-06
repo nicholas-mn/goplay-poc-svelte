@@ -5,4 +5,17 @@
 	let { data, children }: { data: LayoutData; children: Snippet } = $props();
 </script>
 
-{@render children()}
+<div class="app">
+	<main>
+		{@render children()}
+	</main>
+
+	<nav>hello</nav>
+</div>
+
+<style>
+	.app {
+		display: flex;
+		flex-direction: column;
+	}
+</style>
