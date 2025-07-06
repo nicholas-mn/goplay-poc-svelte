@@ -7,7 +7,7 @@
 	import * as Card from '$lib/components/ui/card/index.js';
 </script>
 
-<div class="flex h-dvh w-full items-center justify-center">
+<div class="flex h-dvh w-full flex-col items-center justify-center">
 	<Card.Root>
 		<Card.Header>
 			<Card.Title>Login / Register</Card.Title>
@@ -21,4 +21,5 @@
 			</form>
 		</Card.Content>
 	</Card.Root>
+	<Button variant="link" href="/">Go to homepage</Button>
 </div>
