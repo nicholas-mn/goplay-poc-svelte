@@ -13,12 +13,14 @@ export async function handle({ event, resolve }) {
 
 	try {
 		// get an up-to-date auth store state by verifying and refreshing the loaded auth model (if any)
-		await event.locals.pb.collection('users').authRefresh();
+		const record = await event.locals.pb.collection('users').authRefresh();
 		isLoggedIn = true;
+		event.locals.user = structuredClone(record.record)
 	} catch (_) {
 		// clear the auth store on failed refresh
 		event.locals.pb.authStore.clear();
 		isLoggedIn = false;
+		event.locals.user = null
 	}
 
 	const path = event.url.pathname;
