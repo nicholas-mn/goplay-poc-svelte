@@ -36,30 +36,18 @@
 		// Add the navigation control
 		map.addControl(new maplibregl.NavigationControl());
 
-		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(
-				(position) => {
-					const { latitude, longitude } = position.coords;
-					map.setCenter([longitude, latitude]);
-					map.setZoom(14);
+		let geolocate = new maplibregl.GeolocateControl({
+			positionOptions: {
+				enableHighAccuracy: true
+			},
+			trackUserLocation: true
+		});
+		// Add the control to the map.
+		map.addControl(geolocate);
 
-					// Add a marker at the user's location
-					new maplibregl.Marker().setLngLat([longitude, latitude]).addTo(map);
-				},
-				(error) => {
-					console.error('Geolocation error:', error);
-				}
-			);
-		}
-
-		map.addControl(
-			new maplibregl.GeolocateControl({
-				positionOptions: {
-					enableHighAccuracy: true
-				},
-				trackUserLocation: true
-			})
-		);
+		map.on('load', () => {
+			geolocate.trigger();
+		});
 	});
 </script>
 
