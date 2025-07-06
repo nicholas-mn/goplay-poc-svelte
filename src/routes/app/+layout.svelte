@@ -6,8 +6,8 @@
 	let { data, children }: { data: LayoutData; children: Snippet } = $props();
 </script>
 
-<div class="m-4 mx-auto flex h-[95vh] max-w-lg flex-col justify-between rounded-2xl border-1 p-2.5">
-	<main>
+<div class="mx-auto flex h-dvh max-w-lg flex-col justify-between gap-2 p-2.5">
+	<main class="h-full rounded-2xl border p-2.5">
 		{@render children()}
 	</main>
 
