@@ -48,13 +48,11 @@
 		map.addControl(geolocate);
 
 		map.on('load', () => {
+			// test for IOS Safari, which is not working right now
+			navigator.geolocation.getCurrentPosition(() => null, null, {
+				enableHighAccuracy: true
+			});
 			geolocate.trigger();
-		});
-
-		map.on('click', (e) => {
-			const coordinates = e.lngLat;
-
-			new maplibregl.Popup().setLngLat(coordinates).setHTML(coordinates.toString()).addTo(map);
 		});
 
 		$effect(() => {
