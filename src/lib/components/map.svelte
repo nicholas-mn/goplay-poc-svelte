@@ -3,6 +3,8 @@
 	import 'maplibre-gl/dist/maplibre-gl.css';
 	import { onMount } from 'svelte';
 
+	let { searchPosition = [] }: { searchPosition?: string[] } = $props();
+
 	// Define the map syle (OpenStreetMap raster tiles)
 	const style: maplibregl.StyleSpecification = {
 		version: 8,
@@ -23,6 +25,8 @@
 			}
 		]
 	};
+
+	let mapp: maplibregl.Map = $state<any>();
 
 	onMount(() => {
 		// Initialise the map
@@ -47,6 +51,28 @@
 
 		map.on('load', () => {
 			geolocate.trigger();
+		});
+
+		map.on('click', (e) => {
+			const coordinates = e.lngLat;
+
+			new maplibregl.Popup().setLngLat(coordinates).setHTML(coordinates.toString()).addTo(map);
+		});
+
+		$effect(() => {
+			if (searchPosition.length > 0) {
+				const position = new maplibregl.LngLat(
+					Number(searchPosition[0]),
+					Number(searchPosition[1])
+				);
+				console.log(position);
+				new maplibregl.Popup().setLngLat(position).setHTML('Tilføj her?').addTo(map);
+				map.flyTo({
+					center: position,
+					essential: true,
+					zoom: 14
+				});
+			}
 		});
 	});
 </script>
