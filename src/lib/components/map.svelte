@@ -26,8 +26,6 @@
 		]
 	};
 
-	let mapp: maplibregl.Map = $state<any>();
-
 	onMount(() => {
 		// Initialise the map
 		const map = new maplibregl.Map({
@@ -65,8 +63,11 @@
 					Number(searchPosition[0]),
 					Number(searchPosition[1])
 				);
+
 				console.log(position);
+
 				new maplibregl.Popup().setLngLat(position).setHTML('Tilføj her?').addTo(map);
+
 				map.flyTo({
 					center: position,
 					essential: true,
