@@ -10,14 +10,14 @@
 				<NavigationMenu.Link
 					href="/app"
 					class={(page.url.pathname === '/app' ? 'bg-accent' : '') +
-						' scroll-m-20 text-xl font-semibold tracking-tight'}>Opret</NavigationMenu.Link
+						' scroll-m-20 text-xl font-semibold tracking-tight'}>Find leg</NavigationMenu.Link
 				>
 			</NavigationMenu.Item>
 			<NavigationMenu.Item>
 				<NavigationMenu.Link
-					href="/app/findleg"
-					class={(page.url.pathname === '/app/findleg' ? 'bg-accent' : '') +
-						' scroll-m-20 text-xl font-semibold tracking-tight'}>Find leg</NavigationMenu.Link
+					href="/app/opret"
+					class={(page.url.pathname === '/app/opret' ? 'bg-accent' : '') +
+						' scroll-m-20 text-xl font-semibold tracking-tight'}>Opret leg</NavigationMenu.Link
 				>
 			</NavigationMenu.Item>
 			<NavigationMenu.Item>
